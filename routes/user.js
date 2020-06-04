@@ -15,6 +15,10 @@ router.get('/secret/:userId',authController.requireSignIn,authController.isAuth,
 });
 
 
+router.get('/user/:userId',authController.requireSignIn,authController.isAuth,userController.read);
+router.put('/user/:userId',authController.requireSignIn,authController.isAuth,userController.update);
+
+
 
 router.param('userId',userController.userId);  //this middleware runs when there is user id in route
 
